@@ -58,22 +58,29 @@ const Features = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
-            <div 
-              key={feature.id} 
-              className="bg-white border border-gray-100 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="text-luxe-gold mb-4">
-                {feature.icon}
+          {features.map((feature, index) => {
+            // Rotate through pastel colors for each feature card
+            const bgColors = ["bg-luxe-pink bg-opacity-10", "bg-luxe-blue bg-opacity-10", 
+                             "bg-luxe-lavender bg-opacity-10", "bg-luxe-peach bg-opacity-10"];
+            const bgColor = bgColors[index % bgColors.length];
+            
+            return (
+              <div 
+                key={feature.id} 
+                className={`${bgColor} border border-gray-100 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow`}
+              >
+                <div className="text-luxe-gold mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-medium text-luxe-taupe-dark mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-luxe-taupe">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-medium text-luxe-taupe-dark mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-luxe-taupe">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
         
         <div className="mt-16 text-center">

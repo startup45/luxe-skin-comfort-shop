@@ -53,17 +53,24 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Luxury brand colors
+				// Luxury brand colors - updated to pastel palette
 				luxe: {
 					white: "#FFFFFF",
-					offwhite: "#F6F6F7",
+					offwhite: "#F8F7FA", // Slightly warmer off-white
 					taupe: {
-						light: "#C8C8C9",
-						DEFAULT: "#8A898C",
-						dark: "#403E43",
+						light: "#D1CFD3",
+						DEFAULT: "#9A979F",
+						dark: "#4E4B54",
 					},
-					green: "#F2FCE2",
-					gold: "#D4AF37",
+					green: "#E5F4EE", // Softer pastel green
+					gold: "#E9C46A", // Warmer, softer gold
+					// New pastel colors
+					pink: "#FFDEE2", // Soft pink
+					blue: "#D3E4FD", // Soft blue
+					lavender: "#E5DEFF", // Soft purple
+					peach: "#FDE1D3", // Soft peach
+					mint: "#D5F0E2", // Soft mint
+					yellow: "#FEF7CD", // Soft yellow
 				},
 			},
 			borderRadius: {

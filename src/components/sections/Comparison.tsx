@@ -70,7 +70,7 @@ const Comparison = () => {
           {/* Header */}
           <div className="grid grid-cols-3 bg-luxe-offwhite">
             <div className="p-6 text-luxe-taupe-dark font-medium">Features</div>
-            <div className="p-6 text-center bg-luxe-green text-luxe-taupe-dark font-medium">
+            <div className="p-6 text-center bg-luxe-mint text-luxe-taupe-dark font-medium">
               LUXE<span className="text-luxe-gold">SKIN</span>
             </div>
             <div className="p-6 text-center text-luxe-taupe font-medium">Doctor Towel</div>
@@ -80,7 +80,7 @@ const Comparison = () => {
           {comparisonPoints.map((point, index) => (
             <div 
               key={index} 
-              className={`grid grid-cols-3 border-t border-gray-100 ${point.highlight ? 'bg-luxe-green bg-opacity-20' : ''}`}
+              className={`grid grid-cols-3 border-t border-gray-100 ${point.highlight ? 'bg-luxe-mint bg-opacity-20' : ''}`}
             >
               <div className="p-6 text-luxe-taupe-dark flex items-center">
                 {point.feature}

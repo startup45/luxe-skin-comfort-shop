@@ -24,10 +24,10 @@ const Newsletter = () => {
   return (
     <section className="bg-white py-20">
       <div className="container-luxe">
-        <div className="bg-luxe-green bg-opacity-30 rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
+        <div className="bg-luxe-mint bg-opacity-50 rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
           {/* Background abstract elements */}
-          <div className="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-luxe-green bg-opacity-30"></div>
-          <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-luxe-green bg-opacity-20"></div>
+          <div className="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-luxe-mint bg-opacity-50"></div>
+          <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-luxe-mint bg-opacity-30"></div>
           
           <div className="relative z-10 max-w-2xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-medium text-luxe-taupe-dark mb-4">
