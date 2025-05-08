@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { ShoppingCart } from 'lucide-react';
+import { toast } from 'sonner';
+import { useCart } from '@/contexts/CartContext';
 
 interface ProductCardProps {
   id: number;
@@ -25,6 +27,24 @@ const ProductCard = ({
   rating = 5,
   bestseller = false
 }: ProductCardProps) => {
+  const { addToCart } = useCart();
+  
+  // Function to handle adding items to cart
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      name,
+      price,
+      image,
+      quantity: 1
+    });
+    
+    toast.success(`Added ${name} to your cart`, {
+      description: `$${price.toFixed(2)}`,
+      duration: 3000,
+    });
+  };
+  
   return (
     <div className="group relative bg-white rounded-lg overflow-hidden border border-gray-100 transition-all duration-300 hover:shadow-lg">
       {/* Badge */}
@@ -37,14 +57,22 @@ const ProductCard = ({
       {/* Image */}
       <div className="relative h-64 overflow-hidden">
         <img 
-          src={image} 
+          src={image.startsWith('http') ? image : `/images/products/${image}`} 
           alt={name} 
           className="w-full h-full object-cover object-center transform transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = '/placeholder.svg';
+          }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-10 opacity-0 group-hover:opacity-100 transition-opacity" />
         
         {/* Quick add button - appears on hover */}
-        <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 translate-y-10 group-hover:translate-y-0 transition-all duration-300 bg-white text-luxe-taupe-dark hover:bg-luxe-gold hover:text-white rounded-full py-2 px-4 text-sm font-medium flex items-center shadow-lg">
+        <button 
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 translate-y-10 group-hover:translate-y-0 transition-all duration-300 bg-white text-luxe-taupe-dark hover:bg-luxe-gold hover:text-white rounded-full py-2 px-4 text-sm font-medium flex items-center shadow-lg"
+          onClick={handleAddToCart}
+          aria-label="Add to cart"
+        >
           <ShoppingCart size={16} className="mr-2" />
           Quick Add
         </button>

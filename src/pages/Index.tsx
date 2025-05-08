@@ -8,14 +8,14 @@ import Comparison from '../components/sections/Comparison';
 import Newsletter from '../components/sections/Newsletter';
 import ProductCard from '../components/ui/ProductCard';
 
-// Sample products data
+// Sample products data with corrected image paths
 const featuredProducts = [
   {
     id: 1,
     name: "Ultra-Soft Bath Towel",
     description: "Our signature bath towel with anti-microbial silver threads and dermatologist-approved softness.",
     price: 59.99,
-    image: "https://placeholder.pics/svg/400x300/FFFFFF/8A898C/bath%20towel",
+    image: "bath-towel.jpg",
     category: "Bath Towels",
     tags: ["Anti-Bacterial", "Quick-Dry"],
     rating: 5,
@@ -26,7 +26,7 @@ const featuredProducts = [
     name: "Luxury Face Towel Set",
     description: "Set of 3 ultra-gentle face towels designed specifically for sensitive facial skin.",
     price: 39.99,
-    image: "https://placeholder.pics/svg/400x300/FFFFFF/8A898C/face%20towel",
+    image: "face-towel.jpg",
     category: "Face Towels",
     tags: ["Hypoallergenic", "Gentle"],
     rating: 5
@@ -36,7 +36,7 @@ const featuredProducts = [
     name: "Premium Hand Towel",
     description: "The perfect blend of absorption and quick-drying technology for daily hand drying.",
     price: 29.99,
-    image: "https://placeholder.pics/svg/400x300/FFFFFF/8A898C/hand%20towel",
+    image: "hand-towel.jpg",
     category: "Hand Towels",
     tags: ["Quick-Dry", "700 GSM"],
     rating: 4.5
@@ -46,7 +46,7 @@ const featuredProducts = [
     name: "Complete Luxury Bundle",
     description: "Our complete set featuring 2 bath towels, 2 hand towels, and 2 face towels.",
     price: 179.99,
-    image: "https://placeholder.pics/svg/400x300/FFFFFF/8A898C/towel%20bundle",
+    image: "towel-bundle.jpg",
     category: "Bundles",
     tags: ["Gift Set", "Value Pack"],
     rating: 5,
@@ -58,25 +58,25 @@ const certifications = [
   {
     id: 1,
     name: "Dermatologically Tested",
-    image: "https://placeholder.pics/svg/150x150/DEDEDE/555555/dermatologist%20tested",
+    image: "/images/certifications/dermatologist-tested.png",
     description: "Tested by leading dermatologists for skin safety and compatibility."
   },
   {
     id: 2,
     name: "OEKO-TEX® Certified",
-    image: "https://placeholder.pics/svg/150x150/DEDEDE/555555/oeko-tex",
+    image: "/images/certifications/oeko-tex.png",
     description: "Meets the highest environmental and safety standards in textile production."
   },
   {
     id: 3,
     name: "Anti-Microbial Verified",
-    image: "https://placeholder.pics/svg/150x150/DEDEDE/555555/anti-microbial",
+    image: "/images/certifications/anti-microbial.png",
     description: "Silver-infused fibers independently tested for bacterial resistance."
   },
   {
     id: 4,
     name: "Premium Material Rating",
-    image: "https://placeholder.pics/svg/150x150/DEDEDE/555555/premium%20material",
+    image: "/images/certifications/premium-material.png",
     description: "Top-tier 700 GSM cotton recognized for exceptional quality."
   }
 ];
@@ -142,7 +142,15 @@ const Index = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {certifications.map((cert) => (
                 <div key={cert.id} className="bg-luxe-offwhite p-6 rounded-lg text-center hover:shadow-md transition-shadow">
-                  <img src={cert.image} alt={cert.name} className="w-24 h-24 mx-auto mb-4" />
+                  <img 
+                    src={cert.image} 
+                    alt={cert.name} 
+                    className="w-24 h-24 mx-auto mb-4" 
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = '/placeholder.svg';
+                    }}
+                  />
                   <h3 className="text-lg font-medium text-luxe-taupe-dark mb-2">{cert.name}</h3>
                   <p className="text-sm text-luxe-taupe">{cert.description}</p>
                 </div>
@@ -180,9 +188,13 @@ const Index = () => {
                 <div className="flex items-center justify-center">
                   <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden mr-4">
                     <img
-                      src="https://placeholder.pics/svg/100x100/DEDEDE/555555/DR"
+                      src="/images/avatar-doctor.jpg"
                       alt="Dr. Emily Chen"
                       className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = '/placeholder.svg';
+                      }}
                     />
                   </div>
                   <div className="text-left">
