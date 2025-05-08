@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, Search, Menu, X } from "lucide-react";
 
 const Navbar = () => {
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,6 +25,16 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+  
+  const navLinkClass = (path) => {
+    return `transition-colors ${isActive(path) 
+      ? "text-luxe-gold font-medium" 
+      : "text-luxe-taupe-dark hover:text-luxe-gold"}`;
+  };
 
   return (
     <nav
@@ -43,16 +54,16 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors">
+          <Link to="/" className={navLinkClass("/")}>
             Home
           </Link>
-          <Link to="/shop" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors">
+          <Link to="/shop" className={navLinkClass("/shop")}>
             Shop
           </Link>
-          <Link to="/science" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors">
+          <Link to="/science" className={navLinkClass("/science")}>
             Our Science
           </Link>
-          <Link to="/about" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors">
+          <Link to="/about" className={navLinkClass("/about")}>
             About
           </Link>
         </div>
@@ -62,12 +73,12 @@ const Navbar = () => {
           <button aria-label="Search" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors">
             <Search size={20} />
           </button>
-          <button aria-label="Cart" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors relative">
+          <Link to="/cart" aria-label="Cart" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors relative">
             <ShoppingCart size={20} />
             <span className="absolute -top-2 -right-2 bg-luxe-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
               0
             </span>
-          </button>
+          </Link>
           
           {/* Mobile menu button */}
           <button
@@ -84,16 +95,16 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white absolute top-full left-0 w-full shadow-md animate-fade-in">
           <div className="container-luxe py-4 flex flex-col space-y-4">
-            <Link to="/" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors" onClick={toggleMenu}>
+            <Link to="/" className={navLinkClass("/")} onClick={toggleMenu}>
               Home
             </Link>
-            <Link to="/shop" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors" onClick={toggleMenu}>
+            <Link to="/shop" className={navLinkClass("/shop")} onClick={toggleMenu}>
               Shop
             </Link>
-            <Link to="/science" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors" onClick={toggleMenu}>
+            <Link to="/science" className={navLinkClass("/science")} onClick={toggleMenu}>
               Our Science
             </Link>
-            <Link to="/about" className="text-luxe-taupe-dark hover:text-luxe-gold transition-colors" onClick={toggleMenu}>
+            <Link to="/about" className={navLinkClass("/about")} onClick={toggleMenu}>
               About
             </Link>
           </div>

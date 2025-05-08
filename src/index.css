@@ -64,12 +64,12 @@
   
   .btn-primary {
     @apply rounded-md bg-luxe-gold text-white font-medium px-6 py-2.5 transition-all
-    hover:shadow-elegant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
+    hover:shadow-elegant hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
   }
 
   .btn-secondary {
     @apply rounded-md bg-white border border-luxe-gold text-luxe-taupe-dark font-medium px-6 py-2.5 transition-all
-    hover:bg-luxe-offwhite hover:shadow-elegant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
+    hover:bg-luxe-offwhite hover:shadow-elegant hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
   }
   
   .fade-in-section {
@@ -98,6 +98,34 @@
 
   .heading-md {
     @apply text-2xl md:text-3xl font-medium text-luxe-taupe-dark;
+  }
+  
+  .luxe-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-luxe-gold/20 text-luxe-gold;
+  }
+  
+  .feature-card {
+    @apply bg-white rounded-xl p-6 border border-luxe-offwhite transition-all duration-300 hover:shadow-elegant hover:border-luxe-gold/30;
+  }
+  
+  .animated-gradient {
+    @apply relative overflow-hidden;
+    background: linear-gradient(-45deg, #F9F8FD, #E5EDE8, #E0E9F5, #F5E4E4);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+  }
+}
+
+/* Custom animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -141,4 +169,85 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced animations */
+.fade-in {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.7s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.7s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.pulse-subtle {
+  animation: pulseSubtle 3s infinite;
+}
+
+@keyframes pulseSubtle {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
