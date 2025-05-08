@@ -55,32 +55,38 @@ const comparisonPoints = [
 
 const Comparison = () => {
   return (
-    <section className="bg-luxe-offwhite py-20">
-      <div className="container-luxe">
+    <section className="bg-luxe-sage bg-opacity-30 py-24 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-luxe-sage rounded-full opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-luxe-blue rounded-full opacity-30 translate-y-1/2 -translate-x-1/2"></div>
+      
+      <div className="container-luxe relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium text-luxe-taupe-dark mb-4">
+          <span className="text-luxe-gold uppercase tracking-widest text-sm font-medium">Comparison</span>
+          <h2 className="heading-lg mt-2">
             See Why We're Better
           </h2>
+          <div className="w-20 h-1 bg-luxe-gold mx-auto mt-6 mb-6"></div>
           <p className="text-luxe-taupe text-lg">
             Our towels outperform Doctor Towel in the areas that matter most for your skin's health.
           </p>
         </div>
         
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-elegant overflow-hidden border border-luxe-offwhite">
           {/* Header */}
-          <div className="grid grid-cols-3 bg-luxe-offwhite">
-            <div className="p-6 text-luxe-taupe-dark font-medium">Features</div>
-            <div className="p-6 text-center bg-luxe-mint text-luxe-taupe-dark font-medium">
-              LUXE<span className="text-luxe-gold">SKIN</span>
+          <div className="grid grid-cols-3">
+            <div className="p-6 text-luxe-taupe-dark font-medium bg-luxe-offwhite">Features</div>
+            <div className="p-6 text-center bg-luxe-gold bg-opacity-20 text-luxe-taupe-dark font-medium">
+              <span className="font-playfair">LUXE<span className="text-luxe-gold">SKIN</span></span>
             </div>
-            <div className="p-6 text-center text-luxe-taupe font-medium">Doctor Towel</div>
+            <div className="p-6 text-center text-luxe-taupe bg-luxe-offwhite font-medium">Doctor Towel</div>
           </div>
           
           {/* Comparison rows */}
           {comparisonPoints.map((point, index) => (
             <div 
               key={index} 
-              className={`grid grid-cols-3 border-t border-gray-100 ${point.highlight ? 'bg-luxe-mint bg-opacity-20' : ''}`}
+              className={`grid grid-cols-3 border-t border-luxe-offwhite transition-colors duration-300 ${index % 2 === 0 ? 'bg-white' : 'bg-luxe-offwhite bg-opacity-30'} ${point.highlight ? 'hover:bg-luxe-gold hover:bg-opacity-10' : ''}`}
             >
               <div className="p-6 text-luxe-taupe-dark flex items-center">
                 {point.feature}
@@ -93,17 +99,25 @@ const Comparison = () => {
               
               <div className="p-6 flex justify-center items-center">
                 {point.us ? (
-                  <Check className="text-luxe-gold h-6 w-6" />
+                  <div className="bg-luxe-gold bg-opacity-20 w-10 h-10 rounded-full flex items-center justify-center">
+                    <Check className="text-luxe-gold h-5 w-5" />
+                  </div>
                 ) : (
-                  <X className="text-red-500 h-6 w-6" />
+                  <div className="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center">
+                    <X className="text-red-500 h-5 w-5" />
+                  </div>
                 )}
               </div>
               
               <div className="p-6 flex justify-center items-center">
                 {point.them ? (
-                  <Check className="text-green-500 h-6 w-6" />
+                  <div className="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center">
+                    <Check className="text-green-500 h-5 w-5" />
+                  </div>
                 ) : (
-                  <X className="text-red-500 h-6 w-6" />
+                  <div className="bg-red-100 w-10 h-10 rounded-full flex items-center justify-center">
+                    <X className="text-red-500 h-5 w-5" />
+                  </div>
                 )}
               </div>
             </div>
@@ -111,7 +125,7 @@ const Comparison = () => {
         </div>
         
         <div className="mt-12 flex justify-center">
-          <button className="btn-primary">
+          <button className="btn-primary hover:scale-105 transition-transform">
             Experience The Difference
           </button>
         </div>

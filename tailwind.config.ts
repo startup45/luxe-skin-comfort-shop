@@ -53,24 +53,30 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Luxury brand colors - updated to pastel palette
+				// Luxury brand colors - updated to soft elegant palette
 				luxe: {
 					white: "#FFFFFF",
-					offwhite: "#F8F7FA", // Slightly warmer off-white
+					offwhite: "#F9F8FD", // Softer off-white with slight purple undertone
 					taupe: {
-						light: "#D1CFD3",
+						light: "#E0DFE7", // Lighter with purple hint
 						DEFAULT: "#9A979F",
 						dark: "#4E4B54",
 					},
-					green: "#E5F4EE", // Softer pastel green
-					gold: "#E9C46A", // Warmer, softer gold
-					// New pastel colors
-					pink: "#FFDEE2", // Soft pink
-					blue: "#D3E4FD", // Soft blue
-					lavender: "#E5DEFF", // Soft purple
-					peach: "#FDE1D3", // Soft peach
-					mint: "#D5F0E2", // Soft mint
-					yellow: "#FEF7CD", // Soft yellow
+					green: "#E8F6F3", // More teal than green now
+					gold: "#D4B483", // Softer gold
+					// New elegant palette
+					pink: "#F9E0E3", // Soft rose
+					blue: "#E0E9F5", // Soft blue
+					lavender: "#EBE5FF", // Soft lavender
+					peach: "#F9E8E1", // Soft peach
+					mint: "#E0F5EF", // Soft mint
+					yellow: "#F6F2E4", // Soft cream
+					sage: "#E5EDE8", // Soft sage
+					mauve: "#E5DBDB", // Soft mauve
+					cream: "#F8F5F0", // Soft cream
+					blush: "#F5E4E4", // Soft blush
+					navy: "#1A2A40", // Deep navy for contrast
+					charcoal: "#333745", // Rich charcoal
 				},
 			},
 			borderRadius: {
@@ -95,16 +101,31 @@ export default {
 					'0%': { opacity: '0', transform: 'translateX(10px)' },
 					'100%': { opacity: '1', transform: 'translateX(0)' },
 				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.7s ease-out',
 				'fade-in-right': 'fade-in-right 0.7s ease-out',
+				'float': 'float 5s ease-in-out infinite',
 			},
 			fontFamily: {
 				'playfair': ['Playfair Display', 'serif'],
 				'inter': ['Inter', 'sans-serif'],
+			},
+			boxShadow: {
+				'soft': '0 10px 25px -3px rgba(0, 0, 0, 0.05)',
+				'elegant': '0 10px 30px -3px rgba(0, 0, 0, 0.08)',
+				'card': '0 15px 35px rgba(0, 0, 0, 0.05)',
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-elegant': 'linear-gradient(to right, #F9F8FD, #F0EFFA)',
+				'gradient-gold': 'linear-gradient(to right, #D4B483, #E9D8B4)',
 			},
 		}
 	},

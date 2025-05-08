@@ -4,21 +4,22 @@ import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="relative bg-luxe-white min-h-screen flex items-center pt-16">
+    <div className="relative bg-gradient-to-br from-luxe-cream to-luxe-offwhite min-h-screen flex items-center pt-16">
       <div className="container-luxe grid md:grid-cols-2 gap-8 lg:gap-16">
         {/* Left column - Text */}
         <div className="flex flex-col justify-center space-y-6 animate-fade-in">
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-luxe-taupe-dark leading-tight">
-              Science-backed luxury for your skin
+            <span className="text-luxe-gold uppercase tracking-widest text-sm font-medium">Premium Quality</span>
+            <h1 className="heading-xl mt-2">
+              Science-backed <span className="text-gradient-gold">luxury</span> for your skin
             </h1>
-            <p className="mt-6 text-lg text-luxe-taupe max-w-md">
+            <p className="mt-6 text-lg text-luxe-taupe max-w-md leading-relaxed">
               Dermatologist-tested towels designed for skin health, paired with the luxury feel of premium spa experiences.
             </p>
           </div>
           
-          <div className="flex space-x-4">
-            <button className="btn-primary">
+          <div className="flex flex-wrap gap-4 pt-2">
+            <button className="btn-primary hover:scale-105 transition-transform">
               Shop Collection
             </button>
             <button className="flex items-center text-luxe-taupe-dark hover:text-luxe-gold transition-colors font-medium">
@@ -28,17 +29,23 @@ const Hero = () => {
           
           {/* Trust indicators */}
           <div className="flex flex-wrap gap-8 pt-8 items-center">
-            <div className="flex flex-col items-center">
-              <img src="https://placeholder.pics/svg/120x60/DEDEDE/555555/dermatologist%20tested" alt="Dermatologist Tested" className="h-10 w-auto opacity-70" />
-              <span className="text-xs text-luxe-taupe mt-2">Dermatologist Tested</span>
+            <div className="flex flex-col items-center hover-lift">
+              <div className="bg-white p-3 rounded-full shadow-soft mb-2">
+                <img src="https://placeholder.pics/svg/40/D4B483/FFFFFF/dermatology" alt="Dermatologist Tested" className="h-10 w-auto" />
+              </div>
+              <span className="text-xs text-luxe-taupe mt-1 font-medium">Dermatologist Tested</span>
             </div>
-            <div className="flex flex-col items-center">
-              <img src="https://placeholder.pics/svg/120x60/DEDEDE/555555/hypoallergenic" alt="Hypoallergenic" className="h-10 w-auto opacity-70" />
-              <span className="text-xs text-luxe-taupe mt-2">Hypoallergenic</span>
+            <div className="flex flex-col items-center hover-lift">
+              <div className="bg-white p-3 rounded-full shadow-soft mb-2">
+                <img src="https://placeholder.pics/svg/40/D4B483/FFFFFF/hypo" alt="Hypoallergenic" className="h-10 w-auto" />
+              </div>
+              <span className="text-xs text-luxe-taupe mt-1 font-medium">Hypoallergenic</span>
             </div>
-            <div className="flex flex-col items-center">
-              <img src="https://placeholder.pics/svg/120x60/DEDEDE/555555/anti-bacterial" alt="Anti-bacterial" className="h-10 w-auto opacity-70" />
-              <span className="text-xs text-luxe-taupe mt-2">Anti-bacterial</span>
+            <div className="flex flex-col items-center hover-lift">
+              <div className="bg-white p-3 rounded-full shadow-soft mb-2">
+                <img src="https://placeholder.pics/svg/40/D4B483/FFFFFF/anti" alt="Anti-bacterial" className="h-10 w-auto" />
+              </div>
+              <span className="text-xs text-luxe-taupe mt-1 font-medium">Anti-bacterial</span>
             </div>
           </div>
         </div>
@@ -48,21 +55,23 @@ const Hero = () => {
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full h-full md:w-[120%]">
             <div className="relative h-full w-full">
               {/* Main image */}
-              <img 
-                src="https://placeholder.pics/svg/800x600/F6F6F7/8A898C/towel%20stack" 
-                alt="Premium towels" 
-                className="h-full w-full object-cover rounded-lg shadow-xl"
-              />
+              <div className="h-full w-full overflow-hidden rounded-2xl shadow-elegant">
+                <img 
+                  src="https://placeholder.pics/svg/800x600/F9F8FD/9A979F/luxury%20towels" 
+                  alt="Premium towels" 
+                  className="h-full w-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700"
+                />
+              </div>
               
               {/* Floating accent elements */}
-              <div className="absolute -bottom-4 -left-4 md:-left-10 bg-luxe-green p-6 rounded-lg shadow-lg w-40">
+              <div className="absolute -bottom-4 -left-4 md:-left-10 bg-white p-6 rounded-lg shadow-elegant w-40 animate-float">
                 <div className="text-luxe-taupe-dark">
-                  <div className="text-4xl font-playfair font-medium">99%</div>
+                  <div className="text-4xl font-playfair font-medium text-luxe-gold">99%</div>
                   <div className="text-sm mt-1">prefer our towels over competitors</div>
                 </div>
               </div>
               
-              <div className="absolute -top-4 -right-4 md:-right-10 bg-white p-4 rounded-lg shadow-lg w-32 text-center">
+              <div className="absolute -top-4 -right-4 md:-right-10 glass-effect p-4 rounded-lg shadow-elegant w-32 text-center">
                 <div className="flex justify-center">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -75,7 +84,7 @@ const Hero = () => {
                     </svg>
                   ))}
                 </div>
-                <div className="text-xs mt-1 text-luxe-taupe-dark">
+                <div className="text-xs mt-1 text-luxe-taupe-dark font-medium">
                   500+ 5-star reviews
                 </div>
               </div>
@@ -84,8 +93,10 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Background accent */}
-      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-luxe-offwhite -z-10 rounded-tl-[80px]" />
+      {/* Background accents */}
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/3 bg-luxe-sage -z-10 rounded-tl-[80px]" />
+      <div className="absolute top-32 left-10 w-24 h-24 bg-luxe-blue rounded-full opacity-30 -z-10" />
+      <div className="absolute bottom-32 left-1/4 w-16 h-16 bg-luxe-pink rounded-full opacity-20 -z-10" />
     </div>
   );
 };

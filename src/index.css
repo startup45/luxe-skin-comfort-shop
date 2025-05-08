@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +9,7 @@
 
 @layer base {
   :root {
-    --background: 250 30% 99%;
+    --background: 260 43% 99%;
     --foreground: 222 25% 20%;
 
     --card: 0 0% 100%;
@@ -17,16 +18,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 25% 20%;
 
-    --primary: 170 50% 80%;
+    --primary: 45 48% 67%;
     --primary-foreground: 210 40% 20%;
 
-    --secondary: 220 30% 92%;
+    --secondary: 228 16% 95%;
     --secondary-foreground: 222 25% 25%;
 
-    --muted: 210 30% 95%;
+    --muted: 210 30% 97%;
     --muted-foreground: 215 20% 50%;
 
-    --accent: 250 30% 93%;
+    --accent: 262 30% 95%;
     --accent-foreground: 222 25% 25%;
 
     --destructive: 0 70% 80%;
@@ -34,7 +35,7 @@
 
     --border: 214 25% 90%;
     --input: 214 25% 90%;
-    --ring: 170 50% 70%;
+    --ring: 45 48% 67%;
 
     --radius: 0.75rem;
   }
@@ -54,7 +55,7 @@
 
 @layer components {
   .section-padding {
-    @apply px-4 md:px-8 lg:px-16 py-12 md:py-16 lg:py-20;
+    @apply px-4 md:px-8 lg:px-16 py-12 md:py-16 lg:py-24;
   }
   
   .container-luxe {
@@ -63,7 +64,12 @@
   
   .btn-primary {
     @apply rounded-md bg-luxe-gold text-white font-medium px-6 py-2.5 transition-all
-    hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
+    hover:shadow-elegant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
+  }
+
+  .btn-secondary {
+    @apply rounded-md bg-white border border-luxe-gold text-luxe-taupe-dark font-medium px-6 py-2.5 transition-all
+    hover:bg-luxe-offwhite hover:shadow-elegant focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-luxe-gold;
   }
   
   .fade-in-section {
@@ -73,6 +79,26 @@
   .fade-in-section.visible {
     @apply opacity-100 translate-y-0;
   }
+
+  .elegant-card {
+    @apply bg-white rounded-lg shadow-card border border-luxe-offwhite p-6 transition-all duration-300 hover:shadow-elegant;
+  }
+
+  .accent-border {
+    @apply border-l-4 border-luxe-gold pl-4;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-luxe-taupe-dark leading-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-medium text-luxe-taupe-dark;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-medium text-luxe-taupe-dark;
+  }
 }
 
 /* Custom scroll bar */
@@ -81,14 +107,38 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f9f8fd;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bbb;
+  background: #d1cfd3;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #888;
+  background: #9a979f;
+}
+
+/* Custom animations */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(90deg, #D4B483, #E9D8B4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
