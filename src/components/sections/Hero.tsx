@@ -57,7 +57,7 @@ const Hero = () => {
               {/* Main image */}
               <div className="h-full w-full overflow-hidden rounded-2xl shadow-elegant">
                 <img 
-                  src="https://placeholder.pics/svg/800x600/F9F8FD/9A979F/luxury%20towels" 
+                  src="https://static.vecteezy.com/system/resources/previews/016/707/247/non_2x/beautiful-colorful-bath-towels-tidily-folded-on-shelves-in-department-store-used-as-pattern-background-photo.jpg" 
                   alt="Premium towels" 
                   className="h-full w-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700"
                 />
