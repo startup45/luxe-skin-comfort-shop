@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { Calendar, Users, Heart, Award } from 'lucide-react';
+import { Calendar, Users, Heart, Award, Beaker } from 'lucide-react';
 
 const About = () => {
   // Scroll to top on page load

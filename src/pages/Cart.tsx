@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
@@ -11,11 +10,12 @@ const Cart = () => {
   const [promoCode, setPromoCode] = useState('');
   const [checkoutStep, setCheckoutStep] = useState(1);
 
-  const shipping = 0; // Free shipping
-  const tax = total * 0.08;
-  const grandTotal = total + tax + shipping;
+  // Ensure shipping, tax, and grandTotal are properly typed as numbers
+  const shipping: number = 0; // Free shipping
+  const tax: number = total * 0.08;
+  const grandTotal: number = total + tax + shipping;
   
-  const handleApplyPromoCode = (e) => {
+  const handleApplyPromoCode = (e: React.FormEvent) => {
     e.preventDefault();
     // Promo code logic would go here
     console.log("Applied promo code:", promoCode);
