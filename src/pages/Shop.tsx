@@ -1,18 +1,17 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import ProductCard from '../components/ui/ProductCard';
 import { Filter, SlidersHorizontal } from 'lucide-react';
 
-// Extended product data
+// Extended product data with better image paths
 const products = [
   {
     id: 1,
     name: "Ultra-Soft Bath Towel",
     description: "Our signature bath towel with anti-microbial silver threads and dermatologist-approved softness.",
     price: 59.99,
-    image: "bath-towel.jpg",
+    image: "/images/products/bath-towel.jpg",
     category: "Bath Towels",
     tags: ["Anti-Bacterial", "Quick-Dry"],
     rating: 5,
@@ -23,7 +22,7 @@ const products = [
     name: "Luxury Face Towel Set",
     description: "Set of 3 ultra-gentle face towels designed specifically for sensitive facial skin.",
     price: 39.99,
-    image: "face-towel.jpg",
+    image: "/images/products/face-towel.jpg",
     category: "Face Towels",
     tags: ["Hypoallergenic", "Gentle"],
     rating: 5
@@ -33,7 +32,7 @@ const products = [
     name: "Premium Hand Towel",
     description: "The perfect blend of absorption and quick-drying technology for daily hand drying.",
     price: 29.99,
-    image: "hand-towel.jpg",
+    image: "/images/products/hand-towel.jpg",
     category: "Hand Towels",
     tags: ["Quick-Dry", "700 GSM"],
     rating: 4.5
@@ -43,7 +42,7 @@ const products = [
     name: "Complete Luxury Bundle",
     description: "Our complete set featuring 2 bath towels, 2 hand towels, and 2 face towels.",
     price: 179.99,
-    image: "towel-bundle.jpg",
+    image: "/images/products/towel-bundle.jpg",
     category: "Bundles",
     tags: ["Gift Set", "Value Pack"],
     rating: 5,
@@ -54,7 +53,7 @@ const products = [
     name: "Plush Bath Sheet",
     description: "Extra-large bath sheet for ultimate luxury and full-body coverage after bathing.",
     price: 69.99,
-    image: "bath-towel.jpg",
+    image: "/images/products/bath-towel.jpg",
     category: "Bath Towels",
     tags: ["Extra Large", "Ultra Plush"],
     rating: 4.5
@@ -64,7 +63,7 @@ const products = [
     name: "Spa Wrap Towel",
     description: "Luxurious wrap towel with secure closure for spa-like comfort at home.",
     price: 49.99,
-    image: "face-towel.jpg",
+    image: "/images/products/face-towel.jpg",
     category: "Specialty",
     tags: ["Wrap Style", "Adjustable"],
     rating: 4
@@ -74,7 +73,7 @@ const products = [
     name: "Hair Drying Turban",
     description: "Quick-drying hair towel that reduces frizz and damage while speeding up dry time.",
     price: 34.99,
-    image: "hand-towel.jpg",
+    image: "/images/products/hand-towel.jpg",
     category: "Specialty",
     tags: ["Hair Care", "Microfiber"],
     rating: 4.5
@@ -84,7 +83,7 @@ const products = [
     name: "Baby Towel Set",
     description: "Ultra-soft hooded towels specially designed for baby's sensitive skin.",
     price: 44.99,
-    image: "towel-bundle.jpg",
+    image: "/images/products/towel-bundle.jpg",
     category: "Baby",
     tags: ["Hooded", "Extra Gentle"],
     rating: 5
