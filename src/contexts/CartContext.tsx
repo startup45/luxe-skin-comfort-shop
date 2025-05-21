@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
 interface CartItem {
   id: number;
@@ -21,8 +21,29 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+// Load cart from localStorage if available
+const loadCartFromStorage = (): CartItem[] => {
+  if (typeof window === 'undefined') return [];
+  
+  const saved = localStorage.getItem('luxeSkinCart');
+  if (saved) {
+    try {
+      return JSON.parse(saved);
+    } catch (e) {
+      console.error('Failed to parse cart from localStorage', e);
+      return [];
+    }
+  }
+  return [];
+};
+
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<CartItem[]>(loadCartFromStorage);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('luxeSkinCart', JSON.stringify(items));
+  }, [items]);
 
   // Add item to cart
   const addToCart = (product: Omit<CartItem, 'quantity'> & { quantity?: number }) => {
@@ -30,15 +51,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     
     setItems(prevItems => {
       // Check if item already exists in cart
-      const existingItem = prevItems.find(item => item.id === product.id);
+      const existingItemIndex = prevItems.findIndex(item => item.id === product.id);
       
-      if (existingItem) {
+      if (existingItemIndex >= 0) {
         // Update quantity of existing item
-        return prevItems.map(item => 
-          item.id === product.id 
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
+        const updatedItems = [...prevItems];
+        updatedItems[existingItemIndex] = {
+          ...updatedItems[existingItemIndex],
+          quantity: updatedItems[existingItemIndex].quantity + quantity
+        };
+        return updatedItems;
       } else {
         // Add new item to cart
         return [...prevItems, { ...product, quantity }];
@@ -53,6 +75,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   // Update quantity of item in cart
   const updateQuantity = (id: number, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    
     setItems(prevItems => 
       prevItems.map(item => 
         item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
@@ -63,6 +90,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   // Clear cart
   const clearCart = () => {
     setItems([]);
+    localStorage.removeItem('luxeSkinCart');
   };
 
   // Calculate total number of items
