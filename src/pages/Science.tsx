@@ -1,8 +1,7 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { Beaker, Flask, Microscope, Dna, Award, BookOpen, Sparkles } from 'lucide-react';
+import { Beaker, Microscope, Dna, Award, BookOpen, Sparkles, Coffee } from 'lucide-react';
 
 const Science = () => {
   // Scroll to top on page load
@@ -55,7 +54,7 @@ const Science = () => {
                   description: "Rigorously tested on sensitive skin by board-certified dermatologists to ensure zero irritation."
                 },
                 {
-                  icon: <Flask className="h-10 w-10" />,
+                  icon: <Coffee className="h-10 w-10" />,
                   title: "Silver Infusion",
                   description: "Our patented silver-ion technology naturally inhibits bacteria growth by up to 99.9%."
                 },
